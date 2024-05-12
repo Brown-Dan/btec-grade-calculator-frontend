@@ -51,7 +51,7 @@ export const actions = {
             }));
 
             const requestBody: string = JSON.stringify({courseType: course_type, units: units})
-            const response: Response = await fetch('http://localhost:8080/calculate', {
+            const response: Response = await fetch('https://btec-grade-calculator-4a817c201846.herokuapp.com/calculate', {
                 method: 'POST',
                 body: requestBody,
                 headers: {
