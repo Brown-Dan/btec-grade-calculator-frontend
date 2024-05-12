@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="Calculate page design finished">
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added validation for calculator">
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+error.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/error/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/error/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +56,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/help" />
       <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate" />
       <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/[course_name]" />
     </key>
@@ -63,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715433632591</updated>
-      <workItem from="1715433633851" duration="35767000" />
+      <workItem from="1715433633851" duration="47755000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -73,7 +79,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715531588472</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added validation for calculator">
+      <option name="closed" value="true" />
+      <created>1715533118824</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715533118824</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -81,6 +95,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Calculate page design finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calculate page design finished" />
+    <MESSAGE value="added validation for calculator" />
+    <option name="LAST_COMMIT_MESSAGE" value="added validation for calculator" />
   </component>
 </project>

@@ -6,7 +6,7 @@
 <div class="container h-full mx-auto pr-16 pl-16">
     <div class="text-center mt-5 mb-5">
         <h2 class="h3 pt-4">Please choose your BTEC course from the options provided below.</h2>
-        <h3 class="h4">Unsure about which course to select? Visit our <a class="anchor" href="/info">FAQ</a> section for
+        <h3 class="h4">Unsure about which course to select? Visit our <a class="anchor" href="/info">Course Information</a> section for
             guidance!</h3>
     </div>
     <nav class="list-nav">

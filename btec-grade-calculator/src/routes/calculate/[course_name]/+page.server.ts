@@ -1,34 +1,29 @@
+import {redirect} from "@sveltejs/kit";
+
 export function load() {
     // ...
 }
-
 export const actions = {
+    default: async ({request, url}) => {
+        interface unit {
+            unitName: string
+            grade: string
+        }
 
-    default: async ({request}) => {
+        interface grade_calculation_request {
+            courseType: string
+            unit: unit[]
+        }
+
+        const data = await request.formData();
+
+        // FORM VALIDATION
         interface validation_failure {
             title: string
             message: string
         }
-        let validation_failure: validation_failure | undefined = undefined
 
-        const data = await request.formData();
-        // TODO make request to backend here
-        let json: JSON = JSON.parse(`
-                {
-  "currentGrade" : {
-    "grade" : "M",
-    "ucasPoints" : "42"
-  },
-   "expectedGrade" : {
-    "grade" : "D",
-    "ucasPoints" : "70"
-  },
-   "maximumGrade" : {
-    "grade" : "D*",
-    "ucasPoints" : "82"
-  }
-}
-            `)
+        let validation_failure: validation_failure | undefined = undefined
         const formValues: FormDataEntryValue[] = Array.from(data.values())
         for (const index in formValues) {
             if (formValues.at(Number(index)) === "Select Your Grade") {
@@ -39,8 +34,7 @@ export const actions = {
             }
         }
         const formKeys: string[] = Array.from(data.keys())
-        const duplicates: string[] = formKeys.filter((item, index) => formKeys.indexOf(item) != index)
-
+        const duplicates: string[] = Array.from(new Set(formKeys.filter((item, index) => formKeys.indexOf(item) != index)))
         if (duplicates.length > 0) {
             validation_failure = {
                 title: "Duplicate Units Selected",
@@ -48,8 +42,30 @@ export const actions = {
             }
         }
 
+        let calculationResponse;
+        if (validation_failure == undefined) {
+            const course_type = url.pathname.split("/")[2].replaceAll("%20", " ")
+            const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
+                unitName,
+                grade: String(grade)
+            }));
+
+            const requestBody: string = JSON.stringify({courseType: course_type, units: units})
+            const response: Response = await fetch('http://localhost:8080/calculate', {
+                method: 'POST',
+                body: requestBody,
+                headers: {
+                    "content-type" : "application/json"
+                }
+            });
+            if (response.ok) {
+                calculationResponse = await response.json();
+            } else {
+                redirect(308, "/error")
+            }
+        }
         return {
-            gradeCalculationResult: json,
+            gradeCalculationResult: calculationResponse,
             validationFailure: validation_failure
         }
     }

@@ -1,15 +1,14 @@
 <script lang="ts">
     import {getModalStore, type ModalSettings, type ModalStore} from '@skeletonlabs/skeleton';
+    import {goto} from "$app/navigation";
 
     const modalStore: ModalStore = getModalStore();
 
     const modal: ModalSettings = {
         type: 'alert',
-        // Data
         title: 'Invalid Unit Configuration',
         body: "Unit's may only be selected once."
     };
-
 
     interface CourseUnits {
         courseType: string;
@@ -68,7 +67,6 @@
             grades_calculation_response = form.gradeCalculationResult
         }
     }
-
     function updateGradeSelectorValue(key: number) {
         console.log("settingGrades!")
         let select: HTMLElement | null = document.getElementById(String(key) + "unit");
@@ -78,16 +76,39 @@
         }
     }
 
+    function showExpectedGradeModal() {
+        modalStore.trigger({
+            type: 'alert',
+            title: "What is expected grade?",
+            body: "Your expected grade is the grade that our algorithms predict you will achieve, this is based on your previous performance and the relative difficulty of the remaining units"
+        });
+    }
+
+    function showMaximumGradeModal() {
+        modalStore.trigger({
+            type: 'alert',
+            title: "What is maximum grade?",
+            body: "Your maximum grade is the grade you would achieve if you were to receive the highest possible grade for your remaining units."
+        });
+    }
+
+    function showCurrentGradeModal() {
+        modalStore.trigger({
+            type: 'alert',
+            title: "What is current grade?",
+            body: "Your current grade is the grade you have achieved so far, based on your current grades."
+        });
+    }
 </script>
 
-<div class="overflow-scroll">
+<div>
     <div class="text-center mt-10">
         <h2 class="h2 font-extrabold">BTEC {course_unit_data.courseType} Grade Calculator</h2>
         <div class="text-right">
-            <h4 class="h4 anchor mr-5"><a href="/help/calculate">Need help?</a></h4>
+            <h4 class="h4 anchor mr-5"><a href="/faq">Need help?</a></h4>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center overflow-y-auto">
         <form id="mandatoryUnits" method="POST">
             <div class="flex justify-center flex-col md:flex-row">
                 <div class="">
@@ -133,6 +154,7 @@
                                     <option value="MERIT">Merit</option>
                                     <option value="PASS">Pass</option>
                                     <option value="NEAR_PASS">Near Pass</option>
+                                    <option value="PENDING">Pending</option>
                                     <option value="UNCLASSIFIED">Unclassified</option>
                                 </select>
                             </div>
@@ -149,30 +171,51 @@
     </div>
     <div class="grid grid-cols-3 gap-4 ml-5 mr-5">
         <div class="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 class="h3">Current Grade</h3>
+            <div class="flex items-center">
+                <h3 class="h3 inline-block">Current Grade</h3>
+                <button class="hidden md:block" on:click={showCurrentGradeModal}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    </svg>
+                </button>
+            </div>
             <div>
                 <h6 class="h6">Grade: {grades_calculation_response.currentGrade.grade}</h6>
             </div>
             <div>
-                <h6 class="h6">Ucas Points: {grades_calculation_response.currentGrade.ucasPoints}</h6>
+                <h6 class="h6">UCAS Points: {grades_calculation_response.currentGrade.ucasPoints}</h6>
             </div>
         </div>
         <div class="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 class="h3">Expected Grade</h3>
+            <div class="flex items-center">
+                <h3 class="h3 inline-block">Expected Grade</h3>
+                <button class="hidden md:block" on:click={showExpectedGradeModal}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    </svg>
+                </button>
+            </div>
             <div>
                 <h6 class="h6">Grade: {grades_calculation_response.expectedGrade.grade}</h6>
             </div>
             <div>
-                <h6 class="h6">Ucas Points: {grades_calculation_response.expectedGrade.ucasPoints}</h6>
+                <h6 class="h6">UCAS Points: {grades_calculation_response.expectedGrade.ucasPoints}</h6>
             </div>
         </div>
-        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
-            <h3 class="h3">Maximum Grade</h3>
+        <div class="bg-gray-700 p-4 rounded-lg shadow-md inline-block">
+            <div class="flex items-center">
+                <h3 class="h3 inline-block">Maximum Grade</h3>
+                <button class="hidden md:block" on:click={showMaximumGradeModal}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    </svg>
+                </button>
+            </div>
             <div>
                 <h6 class="h6">Grade: {grades_calculation_response.maximumGrade.grade}</h6>
             </div>
             <div>
-                <h6 class="h6">Ucas Points: {grades_calculation_response.maximumGrade.ucasPoints}</h6>
+                <h6 class="h6">UCAS Points: {grades_calculation_response.maximumGrade.ucasPoints}</h6>
             </div>
         </div>
     </div>

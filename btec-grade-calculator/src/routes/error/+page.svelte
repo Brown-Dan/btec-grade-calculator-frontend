@@ -5,7 +5,8 @@
             <p class="text-lg mt-2 font-extrabold">Something unexpected happened. Our bad!</p>
         </div>
         <div class="my-6 p-5">
-            <img src="https://media0.giphy.com/media/mkwol1f9MUb1g6gWh2/giphy.gif?cid=6c09b952p9l1l8tuydgfknwhile9o4761rhk6whhzn5iuv2h&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Apology GIF" class="mx-auto">
+            <img src="https://media0.giphy.com/media/mkwol1f9MUb1g6gWh2/giphy.gif?cid=6c09b952p9l1l8tuydgfknwhile9o4761rhk6whhzn5iuv2h&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                 alt="Funny Apology GIF" class="mx-auto">
         </div>
         <div class="text-center p-5">
             <p class="text-lg font-extrabold">But don't worry, we're on it!</p>
