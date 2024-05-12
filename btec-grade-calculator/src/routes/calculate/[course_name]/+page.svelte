@@ -29,6 +29,11 @@
         maximumGrade: GradeCalculationResult
     }
 
+    interface validation_failure {
+        title: string
+        message: string
+    }
+
     export let data: {
         course_unit_data: CourseUnits
     };
@@ -36,6 +41,7 @@
 
     export let form: {
         gradeCalculationResult: GradesCalculationResult
+        validationFailure: validation_failure
     };
     let grades_calculation_response: GradesCalculationResult = {
         currentGrade: {
@@ -52,7 +58,15 @@
         }
     }
     if (form) {
-        grades_calculation_response = form.gradeCalculationResult
+        if (form.validationFailure) {
+            modalStore.trigger({
+                type: 'alert',
+                title: form.validationFailure?.title,
+                body: form.validationFailure?.message
+            });
+        } else {
+            grades_calculation_response = form.gradeCalculationResult
+        }
     }
 
     function updateGradeSelectorValue(key: number) {
