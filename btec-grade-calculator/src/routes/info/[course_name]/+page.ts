@@ -12,6 +12,6 @@ export const load = async ({fetch, params}) => {
         redirect(308, "/error")
     }
     return {
-        course_unit_data: responseData
+        course_data: responseData
     };
 };

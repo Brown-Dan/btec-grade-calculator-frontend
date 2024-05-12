@@ -1,6 +1,5 @@
 <script lang="ts">
     import {getModalStore, type ModalSettings, type ModalStore} from '@skeletonlabs/skeleton';
-    import {goto} from "$app/navigation";
 
     const modalStore: ModalStore = getModalStore();
 
@@ -67,6 +66,7 @@
             grades_calculation_response = form.gradeCalculationResult
         }
     }
+
     function updateGradeSelectorValue(key: number) {
         console.log("settingGrades!")
         let select: HTMLElement | null = document.getElementById(String(key) + "unit");
@@ -108,7 +108,7 @@
             <h4 class="h4 anchor mr-5"><a href="/faq">Need help?</a></h4>
         </div>
     </div>
-    <div class="text-center overflow-y-auto">
+    <div class="text-center overflow-scroll">
         <form id="mandatoryUnits" method="POST">
             <div class="flex justify-center flex-col md:flex-row">
                 <div class="">
@@ -170,12 +170,14 @@
         </button>
     </div>
     <div class="grid grid-cols-3 gap-4 ml-5 mr-5">
-        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+        <div class="border-b-4 bg-gray-700 shadow-2xl p-4 rounded-lg mb-5 mt-5">
             <div class="flex items-center">
                 <h3 class="h3 inline-block">Current Grade</h3>
                 <button class="hidden md:block" on:click={showCurrentGradeModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
                     </svg>
                 </button>
             </div>
@@ -186,12 +188,14 @@
                 <h6 class="h6">UCAS Points: {grades_calculation_response.currentGrade.ucasPoints}</h6>
             </div>
         </div>
-        <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+        <div class="border-b-4 bg-gray-700 shadow-2xl p-4 rounded-lg mb-5 mt-5">
             <div class="flex items-center">
                 <h3 class="h3 inline-block">Expected Grade</h3>
                 <button class="hidden md:block" on:click={showExpectedGradeModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
                     </svg>
                 </button>
             </div>
@@ -202,12 +206,14 @@
                 <h6 class="h6">UCAS Points: {grades_calculation_response.expectedGrade.ucasPoints}</h6>
             </div>
         </div>
-        <div class="bg-gray-700 p-4 rounded-lg shadow-md inline-block">
+        <div class="border-b-4 bg-gray-700 shadow-2xl p-4 rounded-lg mb-5 mt-5">
             <div class="flex items-center">
                 <h3 class="h3 inline-block">Maximum Grade</h3>
                 <button class="hidden md:block" on:click={showMaximumGradeModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
                     </svg>
                 </button>
             </div>

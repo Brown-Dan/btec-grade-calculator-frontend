@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="finished calculator, fixed mobile support, added error mapping">
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="changed svg icons">
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[course_name]/+page.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[course_name]/+page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/app.postcss" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/app.postcss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "ignore_missing_gitignore": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -63,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715433632591</updated>
-      <workItem from="1715433633851" duration="48098000" />
+      <workItem from="1715433633851" duration="53933000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -89,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715549361061</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed svg icons">
+      <option name="closed" value="true" />
+      <created>1715549612798</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715549612798</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +114,7 @@
     <MESSAGE value="Calculate page design finished" />
     <MESSAGE value="added validation for calculator" />
     <MESSAGE value="finished calculator, fixed mobile support, added error mapping" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished calculator, fixed mobile support, added error mapping" />
+    <MESSAGE value="changed svg icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed svg icons" />
   </component>
 </project>
