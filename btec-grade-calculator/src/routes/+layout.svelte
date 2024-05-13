@@ -3,7 +3,11 @@
     import {AppBar, initializeStores, Modal, storePopup} from '@skeletonlabs/skeleton';
     import {goto} from "$app/navigation";
     import {arrow, autoUpdate, computePosition, flip, offset, shift} from '@floating-ui/dom';
+    import {injectSpeedInsights} from '@vercel/speed-insights/sveltekit';
+    import {inject} from '@vercel/analytics'
 
+    inject()
+    injectSpeedInsights();
     initializeStores();
     storePopup.set({computePosition, autoUpdate, offset, shift, flip, arrow});
 
