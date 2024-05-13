@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="install vercel adapter">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/svelte.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,14 +13,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="wguz8m17" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2gK5sC8YGRcLIPSd2BbIvwbFm6F" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -32,25 +34,25 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore_missing_gitignore": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "trusted.hosts",
-    "ts.external.directory.path": "/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton/btec-grade-calculator/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;trusted.hosts&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton/btec-grade-calculator/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/help" />
@@ -130,17 +132,22 @@
     <MESSAGE value="added course info page" />
     <MESSAGE value="changed to prod url" />
     <MESSAGE value="install vercel adapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="install vercel adapter" />
+    <MESSAGE value="updated favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated favicon" />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
     {
       "branch": "master",
       "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
     }
   ],
   "lastFilter": {
-    "branch": "master",
+    "branch": "main",
     "currentBranchFilter": true
   }
 }]]></component>
