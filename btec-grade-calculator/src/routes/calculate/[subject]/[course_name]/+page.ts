@@ -2,7 +2,7 @@ import {redirect} from "@sveltejs/kit";
 
 export const load = async ({fetch, params}) => {
 
-    let course_information_url: string = "http://localhost:8080/information/" + params.subject + "/" + params.course_name
+    let course_information_url: string = "https://btec-grade-calculator-4a817c201846.herokuapp.com/information/" + params.subject + "/" + params.course_name
 
     let responseData;
     const response: Response = await fetch(course_information_url);

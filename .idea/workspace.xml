@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added adsense verficication and vercel analytics">
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" afterDir="false" />
-    </list>
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added adsense verficication and vercel analytics" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +74,7 @@
       <workItem from="1715613639506" duration="48000" />
       <workItem from="1715613736457" duration="51000" />
       <workItem from="1715613797485" duration="425000" />
-      <workItem from="1715616188930" duration="4941000" />
+      <workItem from="1715616188930" duration="5406000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
