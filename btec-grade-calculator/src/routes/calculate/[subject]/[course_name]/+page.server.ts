@@ -4,7 +4,7 @@ export function load() {
     // ...
 }
 export const actions = {
-    default: async ({request, url}) => {
+    default: async ({request, url, params}) => {
         interface unit {
             unitName: string
             grade: string
@@ -44,14 +44,14 @@ export const actions = {
 
         let calculationResponse;
         if (validation_failure == undefined) {
-            const course_type = url.pathname.split("/")[2].replaceAll("%20", " ")
+            const course_type = url.pathname.split("/")[3].replaceAll("%20", " ")
             const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
                 unitName,
                 grade: String(grade)
             }));
 
             const requestBody: string = JSON.stringify({courseType: course_type, units: units})
-            const response: Response = await fetch('https://btec-grade-calculator-4a817c201846.herokuapp.com/calculate', {
+            const response: Response = await fetch('http://localhost:8080/calculate/' + params.subject, {
                 method: 'POST',
                 body: requestBody,
                 headers: {
