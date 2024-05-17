@@ -34,7 +34,7 @@
         <svelte:fragment slot="summary">How do I report a bug?</svelte:fragment>
         <svelte:fragment slot="content">
             If you've encountered any issues, like receiving incorrect grades, don't worry. Feel free to reach out to me via email at
-            <a href="mailto:danielbrown05@icloud.com" class="anchor">danielbrown05@icloud.com</a> or connect with me on
+            <a href="mailto:danielbrown05@icloud.com" class="anchor">contact@danbrown.me</a> or connect with me on
             <a href="https://github.com/Brown-Dan" class="anchor">github</a>. I'm here to help! I aim to respond to all queries within 24 hours, so you can expect a prompt and helpful reply. Your success is my priority!
         </svelte:fragment>
     </AccordionItem>
@@ -45,7 +45,7 @@
         </svelte:fragment>
         <svelte:fragment slot="summary">How do I request a feature?</svelte:fragment>
         <svelte:fragment slot="content">
-            Do you have a brilliant idea you'd love to see implemented? Noticed something on the website that could be more user-friendly? Your feedback matters! Feel free to share your thoughts by sending an email to   <a href="mailto:danielbrown05@icloud.com" class="anchor">danielbrown05@icloud.com</a> or by raising an issue on the <a href="https://github.com/Brown-Dan" class="anchor">github</a> repository. Every feature request is important to me, and I'll make sure to review each one promptly. Your input helps make the platform better for everyone!
+            Do you have a brilliant idea you'd love to see implemented? Noticed something on the website that could be more user-friendly? Your feedback matters! Feel free to share your thoughts by sending an email to   <a href="mailto:danielbrown05@icloud.com" class="anchor">contact@danbrown.me</a> or by raising an issue on the <a href="https://github.com/Brown-Dan" class="anchor">github</a> repository. Every feature request is important to me, and I'll make sure to review each one promptly. Your input helps make the platform better for everyone!
         </svelte:fragment>
     </AccordionItem>
     <AccordionItem>
