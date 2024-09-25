@@ -54,6 +54,7 @@
                 </button>
             </a>
         </div>
+        <a class="max-sm:hidden" href="https://www.buymeacoffee.com/danielbrowjs" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
     </svelte:fragment>
 </AppBar>
 <slot/>
