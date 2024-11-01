@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added buy me a coffee button :)">
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/SvgRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/SubjectList.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/sitemap.xml/+server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/static/robots.txt" afterDir="false" />
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="seo refactors!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/sitemap.xml/+server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/sitemap.xml/+server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/static/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/static/robots.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="staging" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,7 +103,9 @@
       <workItem from="1715613736457" duration="51000" />
       <workItem from="1715613797485" duration="425000" />
       <workItem from="1715616188930" duration="5406000" />
-      <workItem from="1730462897754" duration="6163000" />
+      <workItem from="1730462897754" duration="6217000" />
+      <workItem from="1730469364136" duration="469000" />
+      <workItem from="1730492625690" duration="2009000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -182,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727282222881</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="seo refactors!">
+      <option name="closed" value="true" />
+      <created>1730469125049</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730469125049</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +205,8 @@
     <MESSAGE value="changed favicon" />
     <MESSAGE value="added adsense verficication and vercel analytics" />
     <MESSAGE value="added buy me a coffee button :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added buy me a coffee button :)" />
+    <MESSAGE value="seo refactors!" />
+    <option name="LAST_COMMIT_MESSAGE" value="seo refactors!" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [

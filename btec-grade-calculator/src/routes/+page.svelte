@@ -22,7 +22,7 @@
 
     <SubjectList />
 
-    <div class="mt-8 px-4 md:px-16 text-center max-w-3xl mx-auto">
+    <div class="mt-8 px-4 md:px-16 text-left max-w-3xl mx-auto">
         <p>
             The BTEC Grade Calculator supports vocational subjects like Computing and Business, helping you stay on
             track. BTEC courses offer practical, career-oriented learning, valued by employers and universities alike.

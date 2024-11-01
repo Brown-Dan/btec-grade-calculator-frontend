@@ -10,33 +10,36 @@ export const GET: RequestHandler = async () => {
         origin: 'https://www.btecgradecalculator.com',
         paramValues: {
             '/info/[subject]/[course_name]': [
-                ['computing', 'new-york'],
-                ['computing', 'california'],
-                ['computing', 'toronto'],
-                ['computing', 'toronto'],
-                ['computing', 'toronto'],
+                ['computing', 'national-certificate'],
+                ['computing', 'national-extended-certificate'],
+                ['computing', 'national-foundation-diploma'],
+                ['computing', 'national-diploma'],
+                ['computing', 'national-extended-diploma'],
+                ['business', 'national-certificate'],
+                ['business', 'national-extended-certificate'],
+                ['business', 'national-foundation-diploma'],
+                ['business', 'national-diploma'],
+                ['business', 'national-extended-diploma']
             ],
-            '/subject/[subject]': [],
-            '/info/[subject]': [],
+            '/subject/[subject]': ['computing', 'business'],
+            '/info/[subject]': ['computing', 'business'],
             '/calculate/[subject]/[course_name]': [
-                ['usa', 'new-york'],
-                ['usa', 'california'],
-                ['canada', 'toronto'],
+                ['computing', 'national-certificate'],
+                ['computing', 'national-extended-certificate'],
+                ['computing', 'national-foundation-diploma'],
+                ['computing', 'national-diploma'],
+                ['computing', 'national-extended-diploma'],
+                ['business', 'national-certificate'],
+                ['business', 'national-extended-certificate'],
+                ['business', 'national-foundation-diploma'],
+                ['business', 'national-diploma'],
+                ['business', 'national-extended-diploma']
             ],
         },
         headers: {
             'custom-header': 'foo'
         },
-        additionalPaths: [
-            '/foo.pdf', // e.g. to a file in your static dir
-        ],
-        changefreq: 'daily', // excluded by default b/c ignored by modern search engines
-        priority: 0.7, // excluded by default b/c ignored by modern search engines
-        sort: 'alpha', // default is false; 'alpha' sorts all paths alphabetically.
-        processPaths: (paths: sitemap.PathObj[]) => {
-            // A callback to allow arbitrary processing of your path objects. See the
-            // processPaths() section of the README.
-            return paths;
-        },
+        additionalPaths: [],
+        sort: 'alpha'
     });
 };

@@ -8,7 +8,7 @@
 
 
 <li class="h3 text-center font-extrabold p-5">
-    <a href="/subject/{subject_name}" class="bg-secondary-hover-token">
+    <a href="/subject/{subject_name.replace(subject_name_first_char, subject_name_first_char.toLowerCase())}" class="bg-secondary-hover-token">
 
         {@html get_svg(subject_name)}
         <span class="flex-auto">
