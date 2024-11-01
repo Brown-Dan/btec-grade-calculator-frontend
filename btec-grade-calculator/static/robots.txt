@@ -1,0 +1,5 @@
+User-agent: *
+disallow: /info
+disallow: /faq
+disallow: /error
+Sitemap: https://www.example.com/sitemap1.xml

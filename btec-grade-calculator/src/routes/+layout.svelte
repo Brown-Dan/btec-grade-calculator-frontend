@@ -35,7 +35,7 @@
         </div>
     </svelte:fragment>
     <svelte:fragment slot="default">
-        <h1 class="h3">BTEC Grade Calculator</h1>
+        <h1 class="h1">BTEC Grade Calculator</h1>
     </svelte:fragment>
     <svelte:fragment slot="trail">
         <div class="flex gap-4">
