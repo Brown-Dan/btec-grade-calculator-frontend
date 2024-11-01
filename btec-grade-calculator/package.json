@@ -21,6 +21,7 @@
     "@types/node": "20.12.11",
     "autoprefixer": "10.4.19",
     "postcss": "8.4.38",
+    "super-sitemap": "^0.15.1",
     "svelte": "^4.2.7",
     "svelte-check": "^3.6.0",
     "tailwindcss": "3.4.3",

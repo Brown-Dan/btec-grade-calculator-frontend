@@ -18,8 +18,8 @@
         <ul>
             {#each supported_types as course_type}
                 <li class="text-center font-extrabold">
-                    <a href="/calculate/{subject}/{course_type}" class="bg-secondary-hover-token">
-                        <a href="/info/{subject}/{course_type}"> <span class="badge">
+                    <a href="/calculate/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}" class="bg-secondary-hover-token">
+                        <a href="/info/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}"> <span class="badge">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="w-6 h-6">
   <path stroke-linecap="round" stroke-linejoin="round"

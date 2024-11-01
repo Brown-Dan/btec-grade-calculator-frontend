@@ -4,16 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added adsense verficication and vercel analytics" />
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,15 +49,16 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
     &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;trusted.hosts&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton/btec-grade-calculator/node_modules/typescript/lib&quot;,
@@ -59,6 +73,14 @@
       <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/help" />
       <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -75,6 +97,9 @@
       <workItem from="1715613736457" duration="51000" />
       <workItem from="1715613797485" duration="425000" />
       <workItem from="1715616188930" duration="5406000" />
+      <workItem from="1730462897754" duration="6217000" />
+      <workItem from="1730469364136" duration="469000" />
+      <workItem from="1730492625690" duration="3867000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -140,7 +165,39 @@
       <option name="project" value="LOCAL" />
       <updated>1715588436623</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added buy me a coffee button :)">
+      <option name="closed" value="true" />
+      <created>1727282222881</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727282222881</updated>
+    </task>
+    <task id="LOCAL-00010" summary="seo refactors!">
+      <option name="closed" value="true" />
+      <created>1730469125049</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730469125049</updated>
+    </task>
+    <task id="LOCAL-00011" summary="seo refactors!">
+      <option name="closed" value="true" />
+      <created>1730494684181</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730494684181</updated>
+    </task>
+    <task id="LOCAL-00012" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1730495491962</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730495491962</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +214,10 @@
     <MESSAGE value="updated favicon" />
     <MESSAGE value="changed favicon" />
     <MESSAGE value="added adsense verficication and vercel analytics" />
-    <option name="LAST_COMMIT_MESSAGE" value="added adsense verficication and vercel analytics" />
+    <MESSAGE value="added buy me a coffee button :)" />
+    <MESSAGE value="seo refactors!" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [

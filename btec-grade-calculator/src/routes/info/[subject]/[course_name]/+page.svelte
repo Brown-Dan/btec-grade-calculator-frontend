@@ -46,7 +46,7 @@
                 <div class="p-5 mb-5 xl:text-center text-left">
                     <ul>
                         {#each course_data.mandatoryUnits as unit_name}
-                        <li class="p-2"><a href="/info/unit/{unit_name}" class="anchor">{unit_name}</a></li>
+                            <li class="p-2"><a href="/info/unit/{unit_name}" class="anchor">{unit_name}</a></li>
                         {/each}
                     </ul>
                 </div>
