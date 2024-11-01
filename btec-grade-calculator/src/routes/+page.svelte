@@ -1,8 +1,5 @@
 <script lang="ts">
-    import ListItem from "$lib/components/landing/ListItem.svelte";
     import SubjectList from "$lib/components/landing/SubjectList.svelte";
-
-    let subjects: string[] = ["computing", "business"]
 </script>
 
 <svelte:head>
@@ -16,11 +13,12 @@
     <div class="text-center mt-8 mb-4">
         <h2 class="h2">Choose Your BTEC Subject</h2>
         <p class="mt-3 max-w-2xl mx-auto">
-            Use the BTEC Grade Calculator to project your grades and track your progress. Simply select your subject below to get started, and follow the steps to see how you're doing in your course.
+            Use the BTEC Grade Calculator to project your grades and track your progress. Simply select your subject
+            below to get started, and follow the steps to see how you're doing in your course.
         </p>
     </div>
 
-    <SubjectList />
+    <SubjectList/>
 
     <div class="mt-8 px-4 md:px-16 text-left max-w-3xl mx-auto">
         <p>

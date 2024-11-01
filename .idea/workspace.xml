@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="seo refactors!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/app.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/sitemap.xml/+server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/sitemap.xml/+server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/static/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/static/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/static/favicon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +101,7 @@
       <workItem from="1715616188930" duration="5406000" />
       <workItem from="1730462897754" duration="6217000" />
       <workItem from="1730469364136" duration="469000" />
-      <workItem from="1730492625690" duration="2009000" />
+      <workItem from="1730492625690" duration="2828000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -187,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730469125049</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="seo refactors!">
+      <option name="closed" value="true" />
+      <created>1730494684181</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730494684181</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
