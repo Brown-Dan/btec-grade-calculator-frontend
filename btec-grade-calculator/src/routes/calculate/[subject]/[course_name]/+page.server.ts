@@ -44,14 +44,13 @@ export const actions = {
 
         let calculationResponse;
         if (validation_failure == undefined) {
-            const course_type = url.pathname.split("/")[3].replaceAll("%20", " ")
-            const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
+            const course_type = capitalizeWords(url.pathname.split("/")[3].replaceAll("-", " "));            const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
                 unitName,
                 grade: String(grade)
             }));
-
+            let subject: string = params.subject.replace(params.subject.at(0)!, params.subject.at(0)!.toUpperCase())
             const requestBody: string = JSON.stringify({courseType: course_type, units: units})
-            const response: Response = await fetch('https://btec-grade-calculator-4a817c201846.herokuapp.com/calculate/' + params.subject, {
+            const response: Response = await fetch('https://btec-grade-calculator-4a817c201846.herokuapp.com/calculate/' + subject, {
                 method: 'POST',
                 body: requestBody,
                 headers: {
@@ -69,4 +68,8 @@ export const actions = {
             validationFailure: validation_failure
         }
     }
+};
+
+const capitalizeWords = (str: string): string => {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 };
