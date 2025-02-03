@@ -34,7 +34,7 @@
                 <h3 class="h3 mb-2 underline underline-offset-8">Key Facts</h3>
                 <div class="mb-5 p-5 xl:text-center text-left">
                     <ul>
-                        <li class="p-2"><b>UCAS Points range:</b> 0-{course_data.ucasPoints} points</li>
+                        <li class="p-2"><b>UCAS Points range:</b> 0-{course_data.maximumUcasPoints} points</li>
                         <li class="p-2"><b>Guided Learning Hours:</b> {course_data.guidedLearningHours} hours</li>
                         <li class="p-2"><b>Number of units:</b> {course_data.unitCount}</li>
                         <li class="p-2"><b>A Level Equivalent:</b> {course_data.aLevelEquivalent}</li>
