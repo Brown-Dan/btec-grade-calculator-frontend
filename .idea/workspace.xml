@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="refactor">
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added link">
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/InformationRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/courses.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grade-calculator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grades.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/models.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/subject.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/ucas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/units.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,26 +57,29 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
-    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;trusted.hosts&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton/btec-grade-calculator/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore_missing_gitignore": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "org.rust.first.attach.projects": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "trusted.hosts",
+    "ts.external.directory.path": "/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton/btec-grade-calculator/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]" />
@@ -77,8 +92,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
       </set>
     </attachedChunks>
   </component>
@@ -100,6 +115,7 @@
       <workItem from="1730462897754" duration="6217000" />
       <workItem from="1730469364136" duration="469000" />
       <workItem from="1730492625690" duration="3867000" />
+      <workItem from="1738606030962" duration="2682000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -217,7 +233,8 @@
     <MESSAGE value="added buy me a coffee button :)" />
     <MESSAGE value="seo refactors!" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="added link" />
+    <option name="LAST_COMMIT_MESSAGE" value="added link" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [

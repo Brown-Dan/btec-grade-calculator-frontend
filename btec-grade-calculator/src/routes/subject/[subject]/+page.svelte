@@ -5,20 +5,22 @@
         subject: string
     };
     const subject = data.subject;
-    const supported_types = data.supportedTypes.supportedTypes;
+    const supported_types = data.supportedTypes;
 </script>
 
 <div class="container h-full mx-auto pr-16 pl-16">
     <div class="text-center mt-5 mb-5">
         <h2 class="h3 pt-4">Please choose your BTEC course from the options provided below.</h2>
-        <h3 class="h4">Unsure about which course to select? Visit our <a class="anchor" href="/info/{subject}">Course Information</a> section for
+        <h3 class="h4">Unsure about which course to select? Visit our <a class="anchor" href="/info/{subject}">Course
+            Information</a> section for
             guidance!</h3>
     </div>
     <nav class="list-nav">
         <ul>
             {#each supported_types as course_type}
                 <li class="text-center font-extrabold">
-                    <a href="/calculate/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}" class="bg-secondary-hover-token">
+                    <a href="/calculate/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}"
+                       class="bg-secondary-hover-token">
                         <a href="/info/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}"> <span class="badge">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="w-6 h-6">

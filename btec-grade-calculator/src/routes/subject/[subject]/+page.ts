@@ -1,18 +1,8 @@
-import {redirect} from "@sveltejs/kit";
+import {findCoursesBySubject} from "$lib/calculator/InformationRepository";
 
 export const load = async ({fetch, params}) => {
-
-    let information_url: string = "https://btec-grade-calculator-4a817c201846.herokuapp.com/information/"
-
-    let responseData;
-    const response: Response = await fetch(information_url + params.subject + "/types");
-    if (response.ok) {
-        responseData = await response.json();
-    } else {
-        redirect(308, "/error")
-    }
     return {
-        supportedTypes: responseData,
+        supportedTypes: findCoursesBySubject(params.subject).map(course => course.courseType),
         subject: params.subject
     };
 };

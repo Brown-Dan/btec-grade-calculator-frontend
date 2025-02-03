@@ -1,8 +1,10 @@
-import {redirect} from "@sveltejs/kit";
+import type {CourseGradeCalculationRequest} from "$lib/calculator/models";
+import {calculateGrades} from "$lib/calculator/grade-calculator";
 
 export function load() {
     // ...
 }
+
 export const actions = {
     default: async ({request, url, params}) => {
         interface unit {
@@ -44,24 +46,15 @@ export const actions = {
 
         let calculationResponse;
         if (validation_failure == undefined) {
-            const course_type = capitalizeWords(url.pathname.split("/")[3].replaceAll("-", " "));            const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
+            const course_type = capitalizeWords(url.pathname.split("/")[3].replaceAll("-", " "));
+            const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
                 unitName,
                 grade: String(grade)
             }));
             let subject: string = params.subject.replace(params.subject.at(0)!, params.subject.at(0)!.toUpperCase())
-            const requestBody: string = JSON.stringify({courseType: course_type, units: units})
-            const response: Response = await fetch('https://btec-grade-calculator-4a817c201846.herokuapp.com/calculate/' + subject, {
-                method: 'POST',
-                body: requestBody,
-                headers: {
-                    "content-type" : "application/json"
-                }
-            });
-            if (response.ok) {
-                calculationResponse = await response.json();
-            } else {
-                redirect(308, "/error")
-            }
+            let req: CourseGradeCalculationRequest = JSON.parse(JSON.stringify({courseType: course_type, units: units}))
+            req.subject = subject.toLowerCase()
+            calculationResponse = calculateGrades(req)
         }
         return {
             gradeCalculationResult: calculationResponse,

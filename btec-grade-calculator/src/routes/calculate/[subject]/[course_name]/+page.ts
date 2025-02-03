@@ -1,18 +1,8 @@
-import {redirect} from "@sveltejs/kit";
+import {findCourseBySubjectAndType} from "$lib/calculator/InformationRepository";
 
-export const load = async ({fetch, params}) => {
-
-    let course_information_url: string = "https://btec-grade-calculator-4a817c201846.herokuapp.com/information/" + params.subject.replaceAll('-', ' ') + "/" + params.course_name.replaceAll('-', ' ')
-
-    let responseData;
-    const response: Response = await fetch(course_information_url);
-    if (response.ok) {
-        responseData = await response.json();
-    } else {
-        redirect(308, "/error")
-    }
+export const load = async ({params}) => {
     return {
-        course_unit_data: responseData,
+        course_unit_data: findCourseBySubjectAndType(params.subject, params.course_name.replaceAll('-', ' ')),
         subject: params.subject
     };
 };
