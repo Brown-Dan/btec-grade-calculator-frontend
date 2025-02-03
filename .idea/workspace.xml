@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added link">
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/InformationRepository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/courses.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grade-calculator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grades.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/models.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/subject.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/ucas.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/units.ts" afterDir="false" />
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added local grade calculation">
+      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/GradeSelector.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +104,7 @@
       <workItem from="1730462897754" duration="6217000" />
       <workItem from="1730469364136" duration="469000" />
       <workItem from="1730492625690" duration="3867000" />
-      <workItem from="1738606030962" duration="2682000" />
+      <workItem from="1738606030962" duration="3067000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -213,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730495491962</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added local grade calculation">
+      <option name="closed" value="true" />
+      <created>1738611319505</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738611319505</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +231,8 @@
     <MESSAGE value="seo refactors!" />
     <MESSAGE value="refactor" />
     <MESSAGE value="added link" />
-    <option name="LAST_COMMIT_MESSAGE" value="added link" />
+    <MESSAGE value="added local grade calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added local grade calculation" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [
