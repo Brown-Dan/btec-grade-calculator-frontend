@@ -4,7 +4,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="wip" />
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="wip">
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/InformationRepository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/ProgressBar.svelte_svelte_type_style_lang.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/exports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/grades.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/index2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/index3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/internal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/ssr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/chunks/stores.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/endpoints/robots.txt/_server.ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/_error.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/_layout.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/_page.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/calculate/_subject_/_course_name_/_page.server.ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/calculate/_subject_/_course_name_/_page.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/calculate/_subject_/_course_name_/_page.ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/error/_page.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/faq/_page.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/info/_subject_/_page.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/info/_subject_/_page.ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/subject/_subject_/_page.svelte.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/entries/pages/subject/_subject_/_page.ts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/output/server/nodes/7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/vercel-tmp/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.svelte-kit/vercel-tmp/manifest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/.vc-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/functions/fn.func/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/assets/0.NDCeUOKP.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/assets/2.DDNWH9xG.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/assets/ProgressBar.Cirlo5Z8.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/assets/_layout.AZXYrpSt.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/assets/_page.DDNWH9xG.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/InformationRepository.BAvWrWar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/ProgressBar.svelte_svelte_type_style_lang.CJ0D0XsA.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/each.D6YF6ztN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/entry.D0d-skLA.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/index.B1DGTWBL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/index.DEYCpU7K.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/scheduler.DTDmOYLK.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/stores.DaUwwDQk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/chunks/transitions._Wjbu3cw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/entry/app.gmqRAEVP.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/entry/start.vm1luGjY.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/0.4gLgAHKx.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/1.vyba-9Id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/2.Dh4LnwEJ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/3.Dspcgkup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/4.JA8a7SS0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/5.DOPZLQ8W.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/6.CLup16bI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/immutable/nodes/7.CTKXsNj_.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/_app/version.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/.vercel/output/static/sitemap.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +184,7 @@
       <workItem from="1730469364136" duration="469000" />
       <workItem from="1730492625690" duration="3867000" />
       <workItem from="1738606030962" duration="3067000" />
-      <workItem from="1781280354077" duration="2820000" />
+      <workItem from="1781280354077" duration="3179000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -246,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781286562994</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="wip">
+      <option name="closed" value="true" />
+      <created>1781286898697</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1781286898697</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
