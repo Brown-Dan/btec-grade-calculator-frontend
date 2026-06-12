@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added local grade calculation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/SvgRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/SvgRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/InformationRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/InformationRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/courses.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/courses.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grade-calculator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grade-calculator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/subject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/subject.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/units.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/units.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/GradeSelector.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/SubjectList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/SubjectList.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/vite.config.ts" afterDir="false" />
-    </list>
+    <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="wip" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +116,7 @@
       <workItem from="1730469364136" duration="469000" />
       <workItem from="1730492625690" duration="3867000" />
       <workItem from="1738606030962" duration="3067000" />
-      <workItem from="1781280354077" duration="1333000" />
+      <workItem from="1781280354077" duration="1941000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />
@@ -246,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738611319505</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="wip">
+      <option name="closed" value="true" />
+      <created>1781285689487</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1781285689487</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +252,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="added link" />
     <MESSAGE value="added local grade calculation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added local grade calculation" />
+    <MESSAGE value="wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [
