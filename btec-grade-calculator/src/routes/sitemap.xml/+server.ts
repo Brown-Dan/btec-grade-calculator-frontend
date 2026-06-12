@@ -6,40 +6,25 @@ import * as sitemap from 'super-sitemap';
 export const prerender = true; // optional
 
 export const GET: RequestHandler = async () => {
+    const subjects = ['computing', 'business', 'applied-science', 'it', 'science', 'healthcare'];
+    const courseTypes = [
+        'national-certificate',
+        'national-extended-certificate',
+        'national-foundation-diploma',
+        'national-diploma',
+        'national-extended-diploma'
+    ];
+
     return await sitemap.response({
         origin: 'https://www.btecgradecalculator.com',
         paramValues: {
-            '/info/[subject]/[course_name]': [
-                ['computing', 'national-certificate'],
-                ['computing', 'national-extended-certificate'],
-                ['computing', 'national-foundation-diploma'],
-                ['computing', 'national-diploma'],
-                ['computing', 'national-extended-diploma'],
-                ['business', 'national-certificate'],
-                ['business', 'national-extended-certificate'],
-                ['business', 'national-foundation-diploma'],
-                ['business', 'national-diploma'],
-                ['business', 'national-extended-diploma']
-            ],
-            '/subject/[subject]': ['computing', 'business'],
-            '/info/[subject]': ['computing', 'business'],
-            '/calculate/[subject]/[course_name]': [
-                ['computing', 'national-certificate'],
-                ['computing', 'national-extended-certificate'],
-                ['computing', 'national-foundation-diploma'],
-                ['computing', 'national-diploma'],
-                ['computing', 'national-extended-diploma'],
-                ['business', 'national-certificate'],
-                ['business', 'national-extended-certificate'],
-                ['business', 'national-foundation-diploma'],
-                ['business', 'national-diploma'],
-                ['business', 'national-extended-diploma']
-            ],
+            '/subject/[subject]': subjects,
+            '/info/[subject]': subjects,
+            '/calculate/[subject]/[course_name]': subjects.flatMap((subject) =>
+                courseTypes.map((courseType) => [subject, courseType] as [string, string])
+            )
         },
-        headers: {
-            'custom-header': 'foo'
-        },
-        additionalPaths: [],
+        additionalPaths: ['/', '/faq'],
         sort: 'alpha'
     });
 };

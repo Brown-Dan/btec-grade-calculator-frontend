@@ -21,7 +21,6 @@ export interface Subject {
 }
 
 export enum Grade {
-    PENDING = 'PENDING',
     UNCLASSIFIED = 'U',
     NEAR_PASS = 'NP',
     PASS = 'P',
@@ -29,6 +28,8 @@ export enum Grade {
     DISTINCTION = 'D',
     DISTINCTION_STAR = 'D*'
 }
+
+export type InputGrade = 'NOT_MARKED' | 'UNCLASSIFIED' | 'NEAR_PASS' | 'PASS' | 'MERIT' | 'DISTINCTION';
 
 export interface CourseResource {
     subject: string;
@@ -45,7 +46,7 @@ export interface CourseResource {
 
 export interface UnitGradeCalculationRequest {
     unitName: string;
-    grade: Grade;
+    grade: InputGrade;
 }
 
 export interface CourseGradeCalculationRequest {
@@ -63,4 +64,18 @@ export interface GradesCalculation {
     currentGrade: GradeWithUcasPoints;
     expectedGrade: GradeWithUcasPoints;
     maximumGrade: GradeWithUcasPoints;
+    breakdown: {
+        totalUnits: number;
+        completedUnits: number;
+        coefficients: {
+            current: number;
+            expected: number;
+            maximum: number;
+        };
+        points: {
+            current: number;
+            expected: number;
+            maximum: number;
+        };
+    };
 }

@@ -2,6 +2,7 @@ import {
     type CourseGradeCalculationRequest,
     type CourseResource,
     Grade,
+    type InputGrade,
     type GradesCalculation
 } from "$lib/calculator/models";
 import {findCourseBySubjectAndType} from "$lib/calculator/InformationRepository";
@@ -11,10 +12,13 @@ import {getUcasPointsFromGrade} from "$lib/calculator/ucas";
 
 const CURRENT_GRADE_COEFFICIENT = 0.0;
 const MAX_GRADE_COEFFICIENT = 2.66666667;
-const gradeCoefficientMap: Map<string, number> = new Map([
+const PASS_GRADE_COEFFICIENT = 1.0;
+
+const gradeCoefficientMap: Map<InputGrade, number> = new Map([
+    ["NOT_MARKED", PASS_GRADE_COEFFICIENT],
     ["UNCLASSIFIED", 0.0],
     ["NEAR_PASS", 0.66666667],
-    ["PASS", 1.0],
+    ["PASS", PASS_GRADE_COEFFICIENT],
     ["MERIT", 1.66666667],
     ["DISTINCTION", 2.66666667]
 ]);
@@ -25,18 +29,20 @@ export function calculateGrades(gradeCalculationRequest: CourseGradeCalculationR
     // Presuming in this calculation that all mandatory units are present (front end validation)
     const missingOptionalUnitCount = (actualCourse.unitCount) - gradeCalculationRequest.units.length;
 
-    // adding missing optional units to the request as a pending grade
+    // adding missing optional units to the request as not marked
     for (let i = 0; i < missingOptionalUnitCount; i++) {
         gradeCalculationRequest.units.push({
             unitName: Units.GENERIC_OPTIONAL_UNIT,
-            grade: Grade.PENDING
+            grade: "NOT_MARKED"
         });
     }
 
-    const predictedCoefficient = gradeCalculationRequest.units
-        .filter((unit) => unit.grade !== Grade.PENDING)
-        .map((unit) => gradeCoefficientMap.get(unit.grade)!)
-        .reduce((sum, coefficient) => sum + coefficient!, 0) / gradeCalculationRequest.units.length;
+    const completedUnits = gradeCalculationRequest.units.filter((unit) => unit.grade !== "NOT_MARKED");
+    const predictedCoefficient = completedUnits.length === 0
+        ? PASS_GRADE_COEFFICIENT
+        : completedUnits
+            .map((unit) => gradeCoefficientMap.get(unit.grade)!)
+            .reduce((sum, coefficient) => sum + coefficient, 0) / completedUnits.length;
 
     const pointGradeMap = getPointsToGradeMap(gradeCalculationRequest.courseType)!;
 
@@ -44,6 +50,9 @@ export function calculateGrades(gradeCalculationRequest: CourseGradeCalculationR
     const currentGrade = mapGrades(pointsToGrade(pointGradeMap, getPoints(gradeCalculationRequest, CURRENT_GRADE_COEFFICIENT)));
     const expectedGrade = mapGrades(pointsToGrade(pointGradeMap, getPoints(gradeCalculationRequest, predictedCoefficient)));
     const maximumGrade = mapGrades(pointsToGrade(pointGradeMap, getPoints(gradeCalculationRequest, MAX_GRADE_COEFFICIENT)));
+    const currentPoints = getPoints(gradeCalculationRequest, CURRENT_GRADE_COEFFICIENT);
+    const expectedPoints = getPoints(gradeCalculationRequest, predictedCoefficient);
+    const maximumPoints = getPoints(gradeCalculationRequest, MAX_GRADE_COEFFICIENT);
 
     return {
         currentGrade: {
@@ -57,24 +66,35 @@ export function calculateGrades(gradeCalculationRequest: CourseGradeCalculationR
         maximumGrade: {
             grade: maximumGrade,
             ucasPoints: getUcasPointsFromGrade(gradeCalculationRequest.courseType, maximumGrade)
+        },
+        breakdown: {
+            totalUnits: gradeCalculationRequest.units.length,
+            completedUnits: completedUnits.length,
+            coefficients: {
+                current: CURRENT_GRADE_COEFFICIENT,
+                expected: predictedCoefficient,
+                maximum: MAX_GRADE_COEFFICIENT
+            },
+            points: {
+                current: currentPoints,
+                expected: expectedPoints,
+                maximum: maximumPoints
+            }
         }
     };
 
 }
 
-function getPoints(course: CourseGradeCalculationRequest, pendingCoefficient: number): number {
+function getPoints(course: CourseGradeCalculationRequest, notMarkedCoefficient: number): number {
     let totalPoints = 0;
     for (const unit of course.units) {
-        if (unit.grade === Grade.UNCLASSIFIED) {
+        if (unit.grade === "UNCLASSIFIED") {
             return 0;
         }
-        const coefficient = unit.grade === Grade.PENDING ? pendingCoefficient : gradeCoefficientMap.get(unit.grade);
-        console.log(unit.grade)
-        console.log(gradeCoefficientMap.get(unit.grade))
+        const coefficient = unit.grade === "NOT_MARKED" ? notMarkedCoefficient : gradeCoefficientMap.get(unit.grade);
         if (coefficient === undefined) {
             continue;
         }
-        console.log(getGuidedLearningHoursByUnitName(unit.unitName))
         totalPoints += Math.floor(coefficient * getGuidedLearningHoursByUnitName(unit.unitName) / 10);
     }
     return totalPoints;

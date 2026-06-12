@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@skeletonlabs/skeleton": "2.10.0",
@@ -28,7 +29,8 @@
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
     "vite": "^5.0.3",
-    "vite-plugin-tailwind-purgecss": "0.3.3"
+    "vite-plugin-tailwind-purgecss": "0.3.3",
+    "vitest": "^1.6.0"
   },
   "type": "module",
   "dependencies": {

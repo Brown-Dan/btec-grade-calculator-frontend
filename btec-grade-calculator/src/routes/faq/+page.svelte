@@ -2,10 +2,53 @@
 
     import {Accordion, AccordionItem} from "@skeletonlabs/skeleton";
 </script>
-<div class="text-center m-5">
-    <h1 class="h1">FAQ</h1>
+<svelte:head>
+    <title>BTEC Grade Calculator FAQ</title>
+    <meta name="description" content="Frequently asked questions about using the BTEC Grade Calculator, understanding grades and reporting issues."/>
+    <meta property="og:title" content="BTEC Grade Calculator FAQ"/>
+    <meta property="og:description" content="Answers about grade calculations, using optional units and getting support."/>
+    <meta property="og:url" content="https://www.btecgradecalculator.com/faq"/>
+    <meta name="twitter:title" content="BTEC Grade Calculator FAQ"/>
+    <meta name="twitter:description" content="Answers about grade calculations, using optional units and getting support."/>
+    <script type="application/ld+json">
+        {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+                {
+                    '@type': 'Question',
+                    name: 'How do I use the calculator?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Select a course, choose grades for mandatory units, then choose optional units and grades if needed. Results update automatically.'
+                    }
+                },
+                {
+                    '@type': 'Question',
+                    name: 'What do the different grades mean?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Current grade is based on completed units. Expected grade projects incomplete units using your completed-unit trend. Maximum grade assumes top marks on unmarked units.'
+                    }
+                },
+                {
+                    '@type': 'Question',
+                    name: 'How do I report a bug?',
+                    acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Contact via the listed email address or the GitHub profile link on the FAQ page.'
+                    }
+                }
+            ]
+        })}
+    </script>
+</svelte:head>
+<div class="container mx-auto px-4 md:px-16 py-8">
+<div class="text-center mb-6">
+    <p class="text-xs uppercase tracking-[0.2em] text-cyan-200/80">Support</p>
+    <h1 class="text-4xl md:text-5xl font-black tracking-tight mt-3">Frequently Asked Questions</h1>
 </div>
-<Accordion class="items-center p-20 flex-wrap shadow-2xl">
+<Accordion class="rounded-3xl border border-white/10 bg-white/5 p-4 md:p-8 shadow-2xl backdrop-blur-xl">
     <AccordionItem>
         <svelte:fragment slot="lead"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
@@ -13,7 +56,7 @@
         </svelte:fragment>
         <svelte:fragment slot="summary">How do I use the calculator?</svelte:fragment>
         <svelte:fragment slot="content">Navigating the BTEC Grade Calculator may initially seem daunting, but fear not. Simply select the BTEC course type relevant to your studies and proceed to the
-            <a href="/btec-grade-calculator/static" class="anchor">calculator section</a>. Once there, input your grades for the Mandatory units—these are the units you must complete. If you have not yet received your grade, select "PENDING" without concern. Additionally, you'll be prompted to enter your grades for the optional units you're studying. Just select the unit name and input your grade. If you're unsure about the optional unit you're studying, you can leave it blank; our algorithms will still compute your grades accurately. Similarly, if you haven't received your grade for an optional unit, select "PENDING." After filling in your units and grades, simply click the calculate button, and your grades will be promptly displayed on the screen.
+            <a href="/calculate/computing/national-certificate" class="anchor">calculator section</a>. Once there, input your grades for the mandatory units. If a unit has not been marked yet, choose "This unit is not marked". For optional units, select the unit name first and then choose the grade. If you are not studying an optional unit, leave that row blank.
         </svelte:fragment>
     </AccordionItem>
     <AccordionItem>
@@ -59,3 +102,4 @@
         </svelte:fragment>
     </AccordionItem>
 </Accordion>
+</div>

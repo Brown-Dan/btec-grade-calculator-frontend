@@ -5,9 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aef6ab8-4267-431c-9d85-bdf5e792e736" name="Changes" comment="added local grade calculation">
-      <change afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/GradeSelector.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/SvgRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/SvgRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/InformationRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/InformationRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/courses.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/courses.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grade-calculator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/grade-calculator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/subject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/subject.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/units.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/calculator/units.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/GradeSelector.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/ListItem.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/SubjectList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/lib/components/landing/SubjectList.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/calculate/[subject]/[course_name]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/faq/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/info/[subject]/[course_name]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/src/routes/subject/[subject]/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/btec-grade-calculator/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/btec-grade-calculator/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +52,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Brown-Dan"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Brown-Dan/btec-grade-calculator-frontend.git",
+    "accountId": "3cade732-a99c-4452-a2ce-c6b7d3b3b0c3"
+  }
+}]]></component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="wguz8m17" />
   </component>
@@ -39,7 +71,6 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2gK5sC8YGRcLIPSd2BbIvwbFm6F" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,8 +81,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "ignore_missing_gitignore": "true",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton",
     "node.js.detected.package.eslint": "true",
@@ -65,7 +99,8 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "trusted.hosts",
-    "ts.external.directory.path": "/Users/daniel.brown/IdeaProjects/btec-grade-calculator-skeleton/btec-grade-calculator/node_modules/typescript/lib",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/daniel.brown/workspace/IdeaProjects/work/btec-grade-calculator-frontend/btec-grade-calculator/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -81,8 +116,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
       </set>
     </attachedChunks>
   </component>
@@ -105,6 +140,7 @@
       <workItem from="1730469364136" duration="469000" />
       <workItem from="1730492625690" duration="3867000" />
       <workItem from="1738606030962" duration="3067000" />
+      <workItem from="1781280354077" duration="1333000" />
     </task>
     <task id="LOCAL-00001" summary="Calculate page design finished">
       <option name="closed" value="true" />

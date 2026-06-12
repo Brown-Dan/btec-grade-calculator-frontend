@@ -59,6 +59,20 @@ export enum Units {
     SUPPLY_CHAIN_OPERATIONS = "Supply Chain Operations",
     INVESTMENT_OPPORTUNITIES_AND_FINANCIAL_PLANNING = "Investment Opportunities and Financial Planning",
     INSURANCE_PRINCIPLES_AND_POLICIES = "Insurance Principles and Policies",
+    PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I = "Principles and Applications of Science I",
+    PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES = "Practical Scientific Procedures and Techniques",
+    SCIENCE_INVESTIGATION_SKILLS = "Science Investigation Skills",
+    LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION = "Laboratory Techniques and their Application",
+    CONTEMPORARY_ISSUES_IN_SCIENCE = "Contemporary Issues in Science",
+    PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE = "Physiological Disorders and their Care",
+    HUMAN_REGULATION_AND_REPRODUCTION = "Human Regulation and Reproduction",
+    BIOCHEMICAL_TECHNIQUES = "Biochemical Techniques",
+    INDUSTRIAL_CHEMICAL_REACTIONS = "Industrial Chemical Reactions",
+    ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS = "Electrical Circuits and their Applications",
+    ASTRONOMY_AND_SPACE_SCIENCE = "Astronomy and Space Science",
+    MEDICAL_PHYSICS_APPLICATIONS = "Medical Physics Applications",
+    MODERN_PHYSICS_APPLICATIONS = "Modern Physics Applications",
+    ORGANIC_CHEMISTRY = "Organic Chemistry",
     GENERIC_OPTIONAL_UNIT = "GENERIC_OPTIONAL_UNIT"
 }
 
@@ -121,6 +135,20 @@ export const UnitDetails: Record<Units, Unit> = {
     [Units.SUPPLY_CHAIN_OPERATIONS]: { name: Units.SUPPLY_CHAIN_OPERATIONS, guidedLearningHours: 60 },
     [Units.INVESTMENT_OPPORTUNITIES_AND_FINANCIAL_PLANNING]: { name: Units.INVESTMENT_OPPORTUNITIES_AND_FINANCIAL_PLANNING, guidedLearningHours: 60 },
     [Units.INSURANCE_PRINCIPLES_AND_POLICIES]: { name: Units.INSURANCE_PRINCIPLES_AND_POLICIES, guidedLearningHours: 60 },
+    [Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I]: { name: Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I, guidedLearningHours: 90 },
+    [Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES]: { name: Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES, guidedLearningHours: 90 },
+    [Units.SCIENCE_INVESTIGATION_SKILLS]: { name: Units.SCIENCE_INVESTIGATION_SKILLS, guidedLearningHours: 120 },
+    [Units.LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION]: { name: Units.LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION, guidedLearningHours: 90 },
+    [Units.CONTEMPORARY_ISSUES_IN_SCIENCE]: { name: Units.CONTEMPORARY_ISSUES_IN_SCIENCE, guidedLearningHours: 60 },
+    [Units.PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE]: { name: Units.PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE, guidedLearningHours: 60 },
+    [Units.HUMAN_REGULATION_AND_REPRODUCTION]: { name: Units.HUMAN_REGULATION_AND_REPRODUCTION, guidedLearningHours: 60 },
+    [Units.BIOCHEMICAL_TECHNIQUES]: { name: Units.BIOCHEMICAL_TECHNIQUES, guidedLearningHours: 60 },
+    [Units.INDUSTRIAL_CHEMICAL_REACTIONS]: { name: Units.INDUSTRIAL_CHEMICAL_REACTIONS, guidedLearningHours: 60 },
+    [Units.ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS]: { name: Units.ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS, guidedLearningHours: 60 },
+    [Units.ASTRONOMY_AND_SPACE_SCIENCE]: { name: Units.ASTRONOMY_AND_SPACE_SCIENCE, guidedLearningHours: 60 },
+    [Units.MEDICAL_PHYSICS_APPLICATIONS]: { name: Units.MEDICAL_PHYSICS_APPLICATIONS, guidedLearningHours: 60 },
+    [Units.MODERN_PHYSICS_APPLICATIONS]: { name: Units.MODERN_PHYSICS_APPLICATIONS, guidedLearningHours: 60 },
+    [Units.ORGANIC_CHEMISTRY]: { name: Units.ORGANIC_CHEMISTRY, guidedLearningHours: 60 },
     [Units.GENERIC_OPTIONAL_UNIT]: { name: Units.GENERIC_OPTIONAL_UNIT, guidedLearningHours: 60 }
 };
 

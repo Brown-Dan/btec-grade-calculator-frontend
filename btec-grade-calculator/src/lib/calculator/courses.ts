@@ -11,7 +11,12 @@ export enum Courses {
     NATIONAL_EXTENDED_CERTIFICATE_BUSINESS = "National Extended Certificate in Business",
     NATIONAL_FOUNDATION_DIPLOMA_BUSINESS = "National Foundation Diploma in Business",
     NATIONAL_DIPLOMA_BUSINESS = "National Diploma in Business",
-    NATIONAL_EXTENDED_DIPLOMA_BUSINESS = "National Extended Diploma in Business"
+    NATIONAL_EXTENDED_DIPLOMA_BUSINESS = "National Extended Diploma in Business",
+    NATIONAL_CERTIFICATE_APPLIED_SCIENCE = "National Certificate in Applied Science",
+    NATIONAL_EXTENDED_CERTIFICATE_APPLIED_SCIENCE = "National Extended Certificate in Applied Science",
+    NATIONAL_FOUNDATION_DIPLOMA_APPLIED_SCIENCE = "National Foundation Diploma in Applied Science",
+    NATIONAL_DIPLOMA_APPLIED_SCIENCE = "National Diploma in Applied Science",
+    NATIONAL_EXTENDED_DIPLOMA_APPLIED_SCIENCE = "National Extended Diploma in Applied Science"
 }
 
 export const CourseDetails: Record<Courses, Course> = {
@@ -303,6 +308,118 @@ export const CourseDetails: Record<Courses, Course> = {
         aLevelEquivalent: "3 A Levels",
         description: `The Extended Diploma is a two-year, full-time course that meets entry requirements in its own right
         for learners who want to progress to higher education courses in business areas before entering employment.`,
+        optionalUnitCount: 6
+    },
+    [Courses.NATIONAL_CERTIFICATE_APPLIED_SCIENCE]: {
+        subject: "APPLIED SCIENCE",
+        courseType: "National Certificate",
+        mandatoryUnitEntities: [
+            UnitDetails[Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I],
+            UnitDetails[Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES]
+        ],
+        optionalUnitEntities: [],
+        guidedLearningHours: 180,
+        maximumUcasPoints: 28,
+        aLevelEquivalent: "0.5 A Levels",
+        description: "An introductory applied science qualification designed to build practical lab and scientific foundations.",
+        optionalUnitCount: 0
+    },
+    [Courses.NATIONAL_EXTENDED_CERTIFICATE_APPLIED_SCIENCE]: {
+        subject: "APPLIED SCIENCE",
+        courseType: "National Extended Certificate",
+        mandatoryUnitEntities: [
+            UnitDetails[Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I],
+            UnitDetails[Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES],
+            UnitDetails[Units.SCIENCE_INVESTIGATION_SKILLS]
+        ],
+        optionalUnitEntities: [
+            UnitDetails[Units.CONTEMPORARY_ISSUES_IN_SCIENCE],
+            UnitDetails[Units.LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION],
+            UnitDetails[Units.PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE],
+            UnitDetails[Units.INDUSTRIAL_CHEMICAL_REACTIONS],
+            UnitDetails[Units.ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS]
+        ],
+        guidedLearningHours: 360,
+        maximumUcasPoints: 56,
+        aLevelEquivalent: "1 A Level",
+        description: "A one A Level sized applied science course focused on practical techniques and scientific understanding.",
+        optionalUnitCount: 1
+    },
+    [Courses.NATIONAL_FOUNDATION_DIPLOMA_APPLIED_SCIENCE]: {
+        subject: "APPLIED SCIENCE",
+        courseType: "National Foundation Diploma",
+        mandatoryUnitEntities: [
+            UnitDetails[Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I],
+            UnitDetails[Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES],
+            UnitDetails[Units.SCIENCE_INVESTIGATION_SKILLS],
+            UnitDetails[Units.LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION]
+        ],
+        optionalUnitEntities: [
+            UnitDetails[Units.CONTEMPORARY_ISSUES_IN_SCIENCE],
+            UnitDetails[Units.PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE],
+            UnitDetails[Units.HUMAN_REGULATION_AND_REPRODUCTION],
+            UnitDetails[Units.BIOCHEMICAL_TECHNIQUES],
+            UnitDetails[Units.INDUSTRIAL_CHEMICAL_REACTIONS],
+            UnitDetails[Units.ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS]
+        ],
+        guidedLearningHours: 510,
+        maximumUcasPoints: 84,
+        aLevelEquivalent: "1.5 A Levels",
+        description: "A broader foundation in applied science for learners progressing to specialist science pathways.",
+        optionalUnitCount: 2
+    },
+    [Courses.NATIONAL_DIPLOMA_APPLIED_SCIENCE]: {
+        subject: "APPLIED SCIENCE",
+        courseType: "National Diploma",
+        mandatoryUnitEntities: [
+            UnitDetails[Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I],
+            UnitDetails[Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES],
+            UnitDetails[Units.SCIENCE_INVESTIGATION_SKILLS],
+            UnitDetails[Units.LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION],
+            UnitDetails[Units.CONTEMPORARY_ISSUES_IN_SCIENCE]
+        ],
+        optionalUnitEntities: [
+            UnitDetails[Units.PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE],
+            UnitDetails[Units.HUMAN_REGULATION_AND_REPRODUCTION],
+            UnitDetails[Units.BIOCHEMICAL_TECHNIQUES],
+            UnitDetails[Units.INDUSTRIAL_CHEMICAL_REACTIONS],
+            UnitDetails[Units.ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS],
+            UnitDetails[Units.ASTRONOMY_AND_SPACE_SCIENCE],
+            UnitDetails[Units.MEDICAL_PHYSICS_APPLICATIONS],
+            UnitDetails[Units.MODERN_PHYSICS_APPLICATIONS],
+            UnitDetails[Units.ORGANIC_CHEMISTRY]
+        ],
+        guidedLearningHours: 720,
+        maximumUcasPoints: 112,
+        aLevelEquivalent: "2 A Levels",
+        description: "A substantial applied science programme with a mix of biology, chemistry and physics options.",
+        optionalUnitCount: 2
+    },
+    [Courses.NATIONAL_EXTENDED_DIPLOMA_APPLIED_SCIENCE]: {
+        subject: "APPLIED SCIENCE",
+        courseType: "National Extended Diploma",
+        mandatoryUnitEntities: [
+            UnitDetails[Units.PRINCIPLES_AND_APPLICATIONS_OF_SCIENCE_I],
+            UnitDetails[Units.PRACTICAL_SCIENTIFIC_PROCEDURES_AND_TECHNIQUES],
+            UnitDetails[Units.SCIENCE_INVESTIGATION_SKILLS],
+            UnitDetails[Units.LABORATORY_TECHNIQUES_AND_THEIR_APPLICATION],
+            UnitDetails[Units.CONTEMPORARY_ISSUES_IN_SCIENCE],
+            UnitDetails[Units.HUMAN_REGULATION_AND_REPRODUCTION],
+            UnitDetails[Units.BIOCHEMICAL_TECHNIQUES]
+        ],
+        optionalUnitEntities: [
+            UnitDetails[Units.PHYSIOLOGICAL_DISORDERS_AND_THEIR_CARE],
+            UnitDetails[Units.INDUSTRIAL_CHEMICAL_REACTIONS],
+            UnitDetails[Units.ELECTRICAL_CIRCUITS_AND_THEIR_APPLICATIONS],
+            UnitDetails[Units.ASTRONOMY_AND_SPACE_SCIENCE],
+            UnitDetails[Units.MEDICAL_PHYSICS_APPLICATIONS],
+            UnitDetails[Units.MODERN_PHYSICS_APPLICATIONS],
+            UnitDetails[Units.ORGANIC_CHEMISTRY]
+        ],
+        guidedLearningHours: 1080,
+        maximumUcasPoints: 168,
+        aLevelEquivalent: "3 A Levels",
+        description: "A full two-year applied science pathway preparing learners for science degrees and related careers.",
         optionalUnitCount: 6
     }
 }

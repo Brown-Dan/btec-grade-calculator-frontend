@@ -1,228 +1,360 @@
 <script lang="ts">
-    import {getModalStore, type ModalSettings, type ModalStore} from '@skeletonlabs/skeleton';
+    import { enhance } from '$app/forms';
+    import { tick } from 'svelte';
+    import { getModalStore, type ModalStore } from '@skeletonlabs/skeleton';
+    import type { GradesCalculation, InputGrade } from '$lib/calculator/models';
+    import { getPointsToGradeMap } from '$lib/calculator/grades';
 
     const modalStore: ModalStore = getModalStore();
 
-    const modal: ModalSettings = {
-        type: 'alert',
-        title: 'Invalid Unit Configuration',
-        body: "Unit's may only be selected once."
-    };
-
-    interface CourseUnits {
+    type CourseUnits = {
         courseType: string;
         mandatoryUnits: string[];
         optionalUnits: string[];
         optionalUnitCount: number;
-    }
+    };
 
-    interface GradeCalculationResult {
-        grade: string
-        ucasPoints: string
-    }
+    type OptionalSelection = {
+        unitName: string;
+        grade: InputGrade;
+    };
 
-    interface GradesCalculationResult {
-        currentGrade: GradeCalculationResult
-        expectedGrade: GradeCalculationResult
-        maximumGrade: GradeCalculationResult
-    }
+    type FormState = {
+        mandatoryGrades: Record<string, InputGrade>;
+        optionalSelections: OptionalSelection[];
+    };
 
-    interface validation_failure {
-        title: string
-        message: string
-    }
+    type CalculationFormResponse = {
+        gradeCalculationResult?: GradesCalculation;
+        validationFailure?: {
+            title: string;
+            message: string;
+        };
+        formState?: FormState;
+    };
 
     export let data: {
-        course_unit_data: CourseUnits
+        course_unit_data: CourseUnits;
+        subject?: string;
+        savedCalculation?: {
+            formState: FormState;
+            result: GradesCalculation;
+        };
     };
-    const course_unit_data = data.course_unit_data;
+    export let form: CalculationFormResponse | undefined;
 
-    export let form: {
-        gradeCalculationResult: GradesCalculationResult
-        validationFailure: validation_failure
-    };
-    let grades_calculation_response: GradesCalculationResult = {
-        currentGrade: {
-            grade: "",
-            ucasPoints: ""
-        },
-        expectedGrade: {
-            grade: "",
-            ucasPoints: ""
-        },
-        maximumGrade: {
-            grade: "",
-            ucasPoints: ""
+    const courseUnitData = data.course_unit_data;
+    const subject = data.subject ?? '';
+    const subjectTitle = subject.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+    const courseSlug = courseUnitData.courseType.toLowerCase().replaceAll(' ', '-');
+    const gradeOptions: Array<{ value: InputGrade; label: string }> = [
+        { value: 'DISTINCTION', label: 'Distinction' },
+        { value: 'MERIT', label: 'Merit' },
+        { value: 'PASS', label: 'Pass' },
+        { value: 'NEAR_PASS', label: 'Near Pass' },
+        { value: 'UNCLASSIFIED', label: 'Unclassified' },
+        { value: 'NOT_MARKED', label: 'This unit is not marked' }
+    ];
+
+    const initialFormState: FormState | undefined = form?.formState ?? data.savedCalculation?.formState;
+    let mandatoryGrades: Record<string, InputGrade> = { ...(initialFormState?.mandatoryGrades ?? {}) };
+    let optionalSelections: OptionalSelection[] = initialFormState?.optionalSelections
+        ? [...initialFormState.optionalSelections]
+        : Array.from({ length: courseUnitData.optionalUnitCount }).map(() => ({
+            unitName: '',
+            grade: 'NOT_MARKED' as InputGrade
+        }));
+
+    while (optionalSelections.length < courseUnitData.optionalUnitCount) {
+        optionalSelections.push({ unitName: '', grade: 'NOT_MARKED' });
+    }
+    for (const unitName of courseUnitData.mandatoryUnits) {
+        if (!mandatoryGrades[unitName]) {
+            mandatoryGrades[unitName] = 'NOT_MARKED';
         }
     }
-    if (form) {
-        if (form.validationFailure) {
+
+    let latestCalculation: GradesCalculation | undefined =
+        form?.gradeCalculationResult ?? data.savedCalculation?.result;
+
+    let lastValidationMessage = '';
+    let lastAppliedFormStateHash = '';
+
+    $: if (form?.formState) {
+        const nextHash = JSON.stringify(form.formState);
+        if (nextHash !== lastAppliedFormStateHash) {
+            mandatoryGrades = { ...form.formState.mandatoryGrades };
+            optionalSelections = [...form.formState.optionalSelections];
+            while (optionalSelections.length < courseUnitData.optionalUnitCount) {
+                optionalSelections.push({ unitName: '', grade: 'NOT_MARKED' });
+            }
+            for (const unitName of courseUnitData.mandatoryUnits) {
+                if (!mandatoryGrades[unitName]) {
+                    mandatoryGrades[unitName] = 'NOT_MARKED';
+                }
+            }
+            lastAppliedFormStateHash = nextHash;
+        }
+    }
+
+    $: if (form?.gradeCalculationResult) {
+        latestCalculation = form.gradeCalculationResult;
+    }
+
+    $: if (form?.validationFailure) {
+        const validationMessage = `${form.validationFailure.title}:${form.validationFailure.message}`;
+        if (validationMessage !== lastValidationMessage) {
             modalStore.trigger({
                 type: 'alert',
-                title: form.validationFailure?.title,
-                body: form.validationFailure?.message
+                title: form.validationFailure.title,
+                body: form.validationFailure.message
             });
-        } else {
-            grades_calculation_response = form.gradeCalculationResult
+            lastValidationMessage = validationMessage;
         }
     }
 
-    function updateGradeSelectorValue(key: number) {
-        console.log("settingGrades!")
-        let select: HTMLElement | null = document.getElementById(String(key) + "unit");
-        if (select instanceof HTMLSelectElement) {
-            let gradeSelect: HTMLElement | null = document.getElementById(String(key) + "grade")
-            gradeSelect?.setAttribute("name", select.value)
+    let calculatorForm: HTMLFormElement | undefined;
+    const submitCalculation = async () => {
+        await tick();
+        calculatorForm?.requestSubmit();
+    };
+
+    const enhanceCalculationForm = () => {
+        return async ({ update }: { update: (options?: { reset?: boolean; invalidateAll?: boolean }) => Promise<void> }) => {
+            await update({ reset: false, invalidateAll: false });
+        };
+    };
+
+    const availableOptionalUnits = (index: number): string[] => {
+        const selectedByOthers = new Set(
+            optionalSelections
+                .filter((_, otherIndex) => otherIndex !== index)
+                .map((selection) => selection.unitName)
+                .filter((unitName) => unitName.length > 0)
+        );
+
+        return courseUnitData.optionalUnits.filter((unitName) => {
+            return unitName === optionalSelections[index].unitName || !selectedByOthers.has(unitName);
+        });
+    };
+
+    type BoundaryRow = {
+        points: number;
+        grade: string;
+        isCurrent: boolean;
+    };
+
+    const formatGrade = (gradeTokens: string[]): string => {
+        return gradeTokens.join('');
+    };
+
+    let boundaryRows: BoundaryRow[] = [];
+    let nextBoundaryMessage = '';
+
+    $: {
+        boundaryRows = [];
+        nextBoundaryMessage = '';
+
+        if (latestCalculation) {
+            const pointsToGradeMap = getPointsToGradeMap(courseUnitData.courseType);
+            if (pointsToGradeMap) {
+                const currentPoints = latestCalculation.breakdown.points.current;
+                const sortedThresholds = Array.from(pointsToGradeMap.keys()).sort((a, b) => a - b);
+                const currentThreshold = [...sortedThresholds].reverse().find((threshold) => threshold <= currentPoints) ?? 0;
+
+                const nextThreshold = sortedThresholds.find((threshold) => threshold > currentPoints);
+                if (nextThreshold !== undefined) {
+                    const pointsNeeded = nextThreshold - currentPoints;
+                    const nextGrade = formatGrade((pointsToGradeMap.get(nextThreshold) ?? []).map((grade) => String(grade)));
+                    nextBoundaryMessage = `${pointsNeeded} more qualification point${pointsNeeded === 1 ? '' : 's'} for ${nextGrade}`;
+                } else {
+                    nextBoundaryMessage = 'You are currently at the top available boundary.';
+                }
+
+                boundaryRows = [...sortedThresholds]
+                    .reverse()
+                    .map((threshold) => ({
+                        points: threshold,
+                        grade: formatGrade((pointsToGradeMap.get(threshold) ?? []).map((grade) => String(grade))),
+                        isCurrent: threshold === currentThreshold
+                    }));
+            }
         }
     }
 
-    function showExpectedGradeModal() {
-        modalStore.trigger({
-            type: 'alert',
-            title: "What is expected grade?",
-            body: "Your expected grade is the grade that our algorithms predict you will achieve, this is based on your previous performance and the relative difficulty of the remaining units"
-        });
-    }
-
-    function showMaximumGradeModal() {
-        modalStore.trigger({
-            type: 'alert',
-            title: "What is maximum grade?",
-            body: "Your maximum grade is the grade you would achieve if you were to receive the highest possible grade for your remaining units."
-        });
-    }
-
-    function showCurrentGradeModal() {
-        modalStore.trigger({
-            type: 'alert',
-            title: "What is current grade?",
-            body: "Your current grade is the grade you have achieved so far, based on your current grades."
-        });
-    }
 </script>
 
-<div>
-    <div class="text-center mt-10">
-        <h2 class="h2 font-extrabold">BTEC {course_unit_data.courseType} Grade Calculator</h2>
-        <div class="text-right">
-            <h4 class="h4 anchor mr-5"><a href="/faq">Need help?</a></h4>
+<svelte:head>
+    <title>{subjectTitle} {courseUnitData.courseType} Grade Calculator | BTEC Grade Calculator</title>
+    <meta name="description" content={`Calculate ${subjectTitle} ${courseUnitData.courseType} BTEC grades and UCAS points with live current, expected and maximum projections.`}/>
+    <meta property="og:title" content={`${subjectTitle} ${courseUnitData.courseType} Grade Calculator | BTEC Grade Calculator`}/>
+    <meta property="og:description" content={`Live grade and UCAS projection for ${subjectTitle} ${courseUnitData.courseType}.`}/>
+    <meta property="og:url" content={`https://www.btecgradecalculator.com/calculate/${subject}/${courseSlug}`}/>
+    <meta name="twitter:title" content={`${subjectTitle} ${courseUnitData.courseType} Grade Calculator`}/>
+    <meta name="twitter:description" content={`Live grade and UCAS projection for ${subjectTitle} ${courseUnitData.courseType}.`}/>
+</svelte:head>
+
+<div class="container mx-auto px-4 md:px-8 py-8">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-10 shadow-2xl backdrop-blur-xl">
+        <div class="text-center mt-2 mb-8">
+            <p class="text-xs uppercase tracking-[0.2em] text-cyan-200/80">Live calculator</p>
+            <h2 class="pt-3 text-3xl md:text-5xl font-black tracking-tight">BTEC {courseUnitData.courseType}</h2>
+            <p class="mt-3 text-slate-200">Results update automatically when you change any unit selection.</p>
         </div>
-    </div>
-    <div class="text-center overflow-scroll">
-        <form id="mandatoryUnits" method="POST">
-            <div class="flex justify-center flex-col md:flex-row">
-                <div class="">
-                    <h3 class="h3 underline mb-5">Mandatory Units</h3>
-                    {#each course_unit_data.mandatoryUnits as unit_name}
-                        <div class="grid grid-cols-2 p-2.5">
-                            <div class="text-left font-extrabold flex items-center">
-                                <label for="{unit_name}">{unit_name}</label>
-                            </div>
-                            <div class="flex items-center">
-                                <select id="{unit_name}" name="{unit_name}"
-                                        class="bg-gray-50 ml-5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Select Your Grade</option>
-                                    <option value="DISTINCTION">Distinction</option>
-                                    <option value="MERIT">Merit</option>
-                                    <option value="PASS">Pass</option>
-                                    <option value="NEAR_PASS">Near Pass</option>
-                                    <option value="UNCLASSIFIED">Unclassified</option>
-                                    <option value="PENDING">Pending</option>
-                                </select>
+
+        <form method="POST" use:enhance={enhanceCalculationForm} bind:this={calculatorForm}>
+            <div class="flex justify-center flex-col xl:flex-row gap-8">
+                <div class="w-full">
+                    <h3 class="mb-5 text-2xl font-bold tracking-tight">Mandatory Units</h3>
+                    {#each courseUnitData.mandatoryUnits as unitName}
+                        <div class="mb-3 rounded-2xl border border-white/10 bg-black/20 p-4">
+                            <p class="mb-3 text-base font-semibold">{unitName}</p>
+                            <div class="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+                                {#each gradeOptions as option}
+                                    <label class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 cursor-pointer transition hover:bg-white/10">
+                                        <input
+                                            class="radio !border-white/40"
+                                            type="radio"
+                                            name={"mandatory:" + unitName}
+                                            value={option.value}
+                                            bind:group={mandatoryGrades[unitName]}
+                                            on:change={submitCalculation}
+                                        />
+                                        <span>{option.label}</span>
+                                    </label>
+                                {/each}
                             </div>
                         </div>
                     {/each}
                 </div>
-                <div class="">
-                    <h3 class="h3 underline mb-5">Optional Units</h3>
-                    {#each Array(course_unit_data.optionalUnitCount) as _, i}
-                        <div class="grid grid-cols-2 p-2.5 items-center">
-                            <div class="text-left">
-                                <select id="{i}unit" on:input={() => updateGradeSelectorValue(i)}
-                                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Select Your Unit</option>
-                                    {#each course_unit_data.optionalUnits as unit_name}
-                                        <option value="{unit_name}">{unit_name}</option>
+
+                {#if courseUnitData.optionalUnitCount > 0}
+                    <div class="w-full">
+                        <h3 class="mb-5 text-2xl font-bold tracking-tight">Optional Units</h3>
+                        <p class="mb-4 text-slate-300 text-sm">
+                            Selecting only an optional unit (with "This unit is not marked") may not change results until you add a marked grade.
+                        </p>
+                        {#each Array(courseUnitData.optionalUnitCount) as _, i}
+                            <div class="mb-3 rounded-2xl border border-white/10 bg-black/20 p-4">
+                                <select
+                                    class="select w-full mb-3 border-white/20 bg-black/30"
+                                    name={"optional-unit-" + i}
+                                    bind:value={optionalSelections[i].unitName}
+                                    on:change={submitCalculation}
+                                >
+                                    <option value="">Select optional unit</option>
+                                    {#each availableOptionalUnits(i) as unitName}
+                                        <option value={unitName}>{unitName}</option>
                                     {/each}
                                 </select>
+
+                                <div class="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+                                    {#each gradeOptions as option}
+                                        <label class="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 cursor-pointer transition hover:bg-white/10">
+                                            <input
+                                                class="radio !border-white/40"
+                                                type="radio"
+                                                name={"optional-grade-" + i}
+                                                value={option.value}
+                                                disabled={!optionalSelections[i].unitName}
+                                                bind:group={optionalSelections[i].grade}
+                                                on:change={submitCalculation}
+                                            />
+                                            <span>{option.label}</span>
+                                        </label>
+                                    {/each}
+                                </div>
                             </div>
-                            <div>
-                                <select id="{i}grade"
-                                        class="mr-5 ml-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-fit p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Select Your Grade</option>
-                                    <option value="DISTINCTION">Distinction</option>
-                                    <option value="MERIT">Merit</option>
-                                    <option value="PASS">Pass</option>
-                                    <option value="NEAR_PASS">Near Pass</option>
-                                    <option value="PENDING">Pending</option>
-                                    <option value="UNCLASSIFIED">Unclassified</option>
-                                </select>
-                            </div>
-                        </div>
-                    {/each}
-                </div>
+                        {/each}
+                    </div>
+                {/if}
             </div>
         </form>
     </div>
-    <div class="text-center m-5">
-        <button type="submit" form="mandatoryUnits" class="btn btn-xl variant-filled">
-            Calculate
-        </button>
-    </div>
-    <div class="grid grid-cols-3 gap-4 ml-5 mr-5">
-        <div class="border-b-4 bg-gray-700 shadow-2xl p-4 rounded-lg mb-5 mt-5">
-            <div class="flex items-center">
-                <h3 class="h3 inline-block">Current Grade</h3>
-                <button class="hidden md:block" on:click={showCurrentGradeModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                         stroke="currentColor" class="w-6 h-6 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
-                    </svg>
-                </button>
+
+    {#if latestCalculation}
+        {#key `${latestCalculation.currentGrade.grade}-${latestCalculation.expectedGrade.grade}-${latestCalculation.maximumGrade.grade}-${latestCalculation.breakdown.points.current}-${latestCalculation.breakdown.points.expected}-${latestCalculation.breakdown.points.maximum}`}
+            <div class="grid gap-4 mt-6 md:grid-cols-3">
+                <div class="rounded-2xl border border-cyan-300/30 bg-cyan-400/10 shadow-xl p-5">
+                    <h3 class="text-xl font-bold mb-3">Current Grade</h3>
+                    <h6 class="text-base">Grade: {latestCalculation.currentGrade.grade}</h6>
+                    <h6 class="text-base">Qualification Points: {latestCalculation.breakdown.points.current}</h6>
+                    <h6 class="text-base">UCAS Points: {latestCalculation.currentGrade.ucasPoints}</h6>
+                </div>
+                <div class="rounded-2xl border border-fuchsia-300/30 bg-fuchsia-400/10 shadow-xl p-5">
+                    <h3 class="text-xl font-bold mb-3">Expected Grade</h3>
+                    <h6 class="text-base">Grade: {latestCalculation.expectedGrade.grade}</h6>
+                    <h6 class="text-base">Qualification Points: {latestCalculation.breakdown.points.expected}</h6>
+                    <h6 class="text-base">UCAS Points: {latestCalculation.expectedGrade.ucasPoints}</h6>
+                </div>
+                <div class="rounded-2xl border border-violet-300/30 bg-violet-400/10 shadow-xl p-5">
+                    <h3 class="text-xl font-bold mb-3">Maximum Grade</h3>
+                    <h6 class="text-base">Grade: {latestCalculation.maximumGrade.grade}</h6>
+                    <h6 class="text-base">Qualification Points: {latestCalculation.breakdown.points.maximum}</h6>
+                    <h6 class="text-base">UCAS Points: {latestCalculation.maximumGrade.ucasPoints}</h6>
+                </div>
             </div>
-            <div>
-                <h6 class="h6">Grade: {grades_calculation_response.currentGrade.grade}</h6>
-            </div>
-            <div>
-                <h6 class="h6">UCAS Points: {grades_calculation_response.currentGrade.ucasPoints}</h6>
+        {/key}
+
+        <div class="mt-6 rounded-2xl border border-fuchsia-300/30 bg-fuchsia-400/10 p-4 shadow-xl">
+            <p class="text-sm uppercase tracking-[0.16em] text-fuchsia-100/90">Next grade target</p>
+            <p class="mt-2 text-base md:text-lg font-semibold text-white">{nextBoundaryMessage}</p>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5 shadow-xl">
+            <h3 class="text-xl font-bold mb-3 tracking-tight">Grade boundaries</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="text-left text-slate-300 border-b border-white/10">
+                    <tr>
+                        <th class="py-2 pr-3">Grade</th>
+                        <th class="py-2 pr-3">Qualification points</th>
+                        <th class="py-2">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {#each boundaryRows as row}
+                        <tr class={row.isCurrent ? 'bg-cyan-400/10 text-cyan-100' : 'text-slate-200'}>
+                            <td class="py-2 pr-3 font-semibold">{row.grade}</td>
+                            <td class="py-2 pr-3">{row.points}</td>
+                            <td class="py-2">{row.isCurrent ? 'Your current boundary' : ''}</td>
+                        </tr>
+                    {/each}
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="border-b-4 bg-gray-700 shadow-2xl p-4 rounded-lg mb-5 mt-5">
-            <div class="flex items-center">
-                <h3 class="h3 inline-block">Expected Grade</h3>
-                <button class="hidden md:block" on:click={showExpectedGradeModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                         stroke="currentColor" class="w-6 h-6 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
-                    </svg>
-                </button>
+
+        <div class="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5 shadow-xl">
+            <h3 class="text-xl font-bold mb-3 tracking-tight">How your grade is calculated</h3>
+            <p class="text-slate-100">
+                We convert each selected unit grade into a coefficient, multiply by guided learning hours, and convert
+                to points using:
+                <code class="px-1 rounded bg-white/10">floor(coefficient × GLH ÷ 10)</code>.
+            </p>
+            <p class="mt-2 text-slate-200">
+                We then compare total qualification points against the qualification thresholds for your course size.
+            </p>
+            <div class="mt-4 grid gap-3 md:grid-cols-3">
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                    <p class="font-semibold">Current</p>
+                    <p>Qualification Points: {latestCalculation.breakdown.points.current}</p>
+                    <p>Assumed coefficient for not marked units: {latestCalculation.breakdown.coefficients.current.toFixed(2)}</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                    <p class="font-semibold">Expected</p>
+                    <p>Qualification Points: {latestCalculation.breakdown.points.expected}</p>
+                    <p>Assumed coefficient for not marked units: {latestCalculation.breakdown.coefficients.expected.toFixed(2)}</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                    <p class="font-semibold">Maximum</p>
+                    <p>Qualification Points: {latestCalculation.breakdown.points.maximum}</p>
+                    <p>Assumed coefficient for not marked units: {latestCalculation.breakdown.coefficients.maximum.toFixed(2)}</p>
+                </div>
             </div>
-            <div>
-                <h6 class="h6">Grade: {grades_calculation_response.expectedGrade.grade}</h6>
-            </div>
-            <div>
-                <h6 class="h6">UCAS Points: {grades_calculation_response.expectedGrade.ucasPoints}</h6>
-            </div>
+            <p class="mt-3 text-slate-300">
+                Completed units: {latestCalculation.breakdown.completedUnits}/{latestCalculation.breakdown.totalUnits}
+            </p>
         </div>
-        <div class="border-b-4 bg-gray-700 shadow-2xl p-4 rounded-lg mb-5 mt-5">
-            <div class="flex items-center">
-                <h3 class="h3 inline-block">Maximum Grade</h3>
-                <button class="hidden md:block" on:click={showMaximumGradeModal}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                         stroke="currentColor" class="w-6 h-6 ml-2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
-                    </svg>
-                </button>
-            </div>
-            <div>
-                <h6 class="h6">Grade: {grades_calculation_response.maximumGrade.grade}</h6>
-            </div>
-            <div>
-                <h6 class="h6">UCAS Points: {grades_calculation_response.maximumGrade.ucasPoints}</h6>
-            </div>
-        </div>
-    </div>
+    {/if}
 </div>

@@ -1,68 +1,134 @@
-import type {CourseGradeCalculationRequest} from "$lib/calculator/models";
-import {calculateGrades} from "$lib/calculator/grade-calculator";
+import type { Actions } from "./$types";
+import { findCourseBySubjectAndType } from "$lib/calculator/InformationRepository";
+import { calculateGrades } from "$lib/calculator/grade-calculator";
+import type { CourseGradeCalculationRequest, GradesCalculation, InputGrade } from "$lib/calculator/models";
 
-export function load() {
-    // ...
-}
+const CALCULATION_COOKIE = "btec-calculator-state";
 
-export const actions = {
-    default: async ({request, url, params}) => {
-        interface unit {
-            unitName: string
-            grade: string
-        }
+type OptionalFormSelection = {
+    unitName: string;
+    grade: InputGrade;
+};
 
-        interface grade_calculation_request {
-            courseType: string
-            unit: unit[]
+type FormState = {
+    mandatoryGrades: Record<string, InputGrade>;
+    optionalSelections: OptionalFormSelection[];
+};
+
+type SavedCalculation = {
+    formState: FormState;
+    result: GradesCalculation;
+};
+
+const parseSavedCalculation = (rawCookie: string | undefined): SavedCalculation | undefined => {
+    if (!rawCookie) {
+        return;
+    }
+    try {
+        return JSON.parse(rawCookie) as SavedCalculation;
+    } catch {
+        return;
+    }
+};
+
+export const load = async ({ cookies }) => {
+    const savedCalculation = parseSavedCalculation(cookies.get(CALCULATION_COOKIE));
+    return {
+        savedCalculation
+    };
+};
+
+export const actions: Actions = {
+    default: async ({ request, params, cookies }) => {
+        const courseTypeFromUrl = params.course_name.replaceAll("-", " ");
+        const subject = params.subject;
+        const course = findCourseBySubjectAndType(subject, courseTypeFromUrl);
+
+        if (!course) {
+            return {
+                validationFailure: {
+                    title: "Course not found",
+                    message: "We could not load that course. Please choose another course."
+                }
+            };
         }
 
         const data = await request.formData();
 
-        // FORM VALIDATION
-        interface validation_failure {
-            title: string
-            message: string
+        const mandatoryGrades: Record<string, InputGrade> = {};
+        const units: CourseGradeCalculationRequest["units"] = [];
+
+        for (const unitName of course.mandatoryUnits) {
+            const selectedGrade = String(data.get(`mandatory:${unitName}`) ?? "") as InputGrade | "";
+            const grade: InputGrade = selectedGrade || "NOT_MARKED";
+            mandatoryGrades[unitName] = grade;
+            units.push({ unitName, grade });
         }
 
-        let validation_failure: validation_failure | undefined = undefined
-        const formValues: FormDataEntryValue[] = Array.from(data.values())
-        for (const index in formValues) {
-            if (formValues.at(Number(index)) === "Select Your Grade") {
-                validation_failure = {
-                    title: "Missing Mandatory Grade",
-                    message: "Please select a grade for all Mandatory Units"
+        const optionalSelections: OptionalFormSelection[] = [];
+        for (let i = 0; i < course.optionalUnitCount; i++) {
+            const selectedUnitName = String(data.get(`optional-unit-${i}`) ?? "");
+            const selectedGrade = String(data.get(`optional-grade-${i}`) ?? "") as InputGrade | "";
+
+            const optionState: OptionalFormSelection = {
+                unitName: selectedUnitName,
+                grade: selectedGrade || "NOT_MARKED"
+            };
+            optionalSelections.push(optionState);
+
+            if (selectedUnitName) {
+                units.push({
+                    unitName: selectedUnitName,
+                    grade: optionState.grade
+                });
+            }
+        }
+
+        const chosenOptionalUnits = optionalSelections
+            .map((selection) => selection.unitName)
+            .filter((unitName) => unitName.length > 0);
+        const duplicateOptionalUnits = chosenOptionalUnits.filter((unitName, index) => chosenOptionalUnits.indexOf(unitName) !== index);
+
+        if (duplicateOptionalUnits.length > 0) {
+            return {
+                validationFailure: {
+                    title: "Duplicate units selected",
+                    message: `You selected the same optional unit multiple times: ${Array.from(new Set(duplicateOptionalUnits)).join(", ")}`
+                },
+                formState: {
+                    mandatoryGrades,
+                    optionalSelections
                 }
-            }
-        }
-        const formKeys: string[] = Array.from(data.keys())
-        const duplicates: string[] = Array.from(new Set(formKeys.filter((item, index) => formKeys.indexOf(item) != index)))
-        if (duplicates.length > 0) {
-            validation_failure = {
-                title: "Duplicate Units Selected",
-                message: "You have selected unit(s): '" + duplicates + "' more than one time"
-            }
+            };
         }
 
-        let calculationResponse;
-        if (validation_failure == undefined) {
-            const course_type = capitalizeWords(url.pathname.split("/")[3].replaceAll("-", " "));
-            const units: unit[] = Array.from(data.entries()).map(([unitName, grade]: [string, FormDataEntryValue]) => ({
-                unitName,
-                grade: String(grade)
-            }));
-            let subject: string = params.subject.replace(params.subject.at(0)!, params.subject.at(0)!.toUpperCase())
-            let req: CourseGradeCalculationRequest = JSON.parse(JSON.stringify({courseType: course_type, units: units}))
-            req.subject = subject.toLowerCase()
-            calculationResponse = calculateGrades(req)
-        }
+        const calculationRequest: CourseGradeCalculationRequest = {
+            subject,
+            courseType: course.courseType,
+            units
+        };
+        const gradeCalculationResult = calculateGrades(calculationRequest);
+
+        const formState: FormState = {
+            mandatoryGrades,
+            optionalSelections
+        };
+
+        const savedCalculation: SavedCalculation = {
+            formState,
+            result: gradeCalculationResult
+        };
+        cookies.set(CALCULATION_COOKIE, JSON.stringify(savedCalculation), {
+            path: "/",
+            httpOnly: true,
+            sameSite: "lax",
+            maxAge: 60 * 60 * 24 * 30
+        });
+
         return {
-            gradeCalculationResult: calculationResponse,
-            validationFailure: validation_failure
-        }
+            gradeCalculationResult,
+            formState,
+            validationFailure: undefined
+        };
     }
-};
-
-const capitalizeWords = (str: string): string => {
-    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 };

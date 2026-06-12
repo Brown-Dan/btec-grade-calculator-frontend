@@ -1,35 +1,50 @@
 <script lang="ts">
 
     export let data: {
-        supportedTypes: any
+        supportedTypes: string[]
         subject: string
     };
     const subject = data.subject;
     const supported_types = data.supportedTypes;
+    const subjectTitle = subject.replaceAll("-", " ").replace(/\b\w/g, (char) => char.toUpperCase());
+
+    const toSlug = (value: string) => value.toLowerCase().replaceAll(' ', '-');
 </script>
 
-<div class="container h-full mx-auto pr-16 pl-16">
-    <div class="text-center mt-5 mb-5">
-        <h2 class="h3 pt-4">Please choose your BTEC course from the options provided below.</h2>
-        <h3 class="h4">Unsure about which course to select? Visit our <a class="anchor" href="/info/{subject}">Course
-            Information</a> section for
-            guidance!</h3>
+<svelte:head>
+    <title>{subjectTitle} BTEC Courses | BTEC Grade Calculator</title>
+    <meta name="description" content={`Choose a ${subjectTitle} BTEC course size and start calculating your current, expected and maximum grades.`}/>
+    <meta property="og:title" content={`${subjectTitle} BTEC Courses | BTEC Grade Calculator`}/>
+    <meta property="og:description" content={`Compare ${subjectTitle} BTEC course sizes and calculate grade outcomes instantly.`}/>
+    <meta property="og:url" content={`https://www.btecgradecalculator.com/subject/${subject}`}/>
+    <meta name="twitter:title" content={`${subjectTitle} BTEC Courses | BTEC Grade Calculator`}/>
+    <meta name="twitter:description" content={`Compare ${subjectTitle} BTEC course sizes and calculate grade outcomes instantly.`}/>
+</svelte:head>
+
+<div class="container h-full mx-auto px-4 md:px-16 py-8">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10 shadow-2xl backdrop-blur-xl">
+        <div class="text-center">
+            <p class="text-xs uppercase tracking-[0.2em] text-cyan-200/80">Choose pathway</p>
+            <h2 class="pt-3 text-3xl md:text-4xl font-black tracking-tight">Choose your BTEC course size</h2>
+            <h3 class="mt-3 text-slate-300">
+                Need help deciding? Visit
+                <a class="anchor font-semibold" href="/info/{subject}">course information</a>.
+            </h3>
+        </div>
+
+        <nav class="mt-8">
+            <ul class="grid gap-4 md:grid-cols-2">
+                {#each supported_types as course_type}
+                    <li class="rounded-2xl border border-white/10 bg-black/20 p-5 shadow-lg transition hover:border-cyan-300/40 hover:bg-black/30">
+                        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                            <span class="text-lg md:text-xl font-bold tracking-tight">{course_type}</span>
+                            <div class="flex gap-2">
+                                <a class="btn variant-filled-primary" href="/calculate/{subject}/{toSlug(course_type)}">Start calculating</a>
+                            </div>
+                        </div>
+                    </li>
+                {/each}
+            </ul>
+        </nav>
     </div>
-    <nav class="list-nav">
-        <ul>
-            {#each supported_types as course_type}
-                <li class="text-center font-extrabold">
-                    <a href="/calculate/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}"
-                       class="bg-secondary-hover-token">
-                        <a href="/info/{subject}/{course_type.toLowerCase().replaceAll(' ', '-')}"> <span class="badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                             stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round"
-        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg></span></a>
-                        <span class="flex-auto">{course_type}</span>
-                    </a>
-                </li>
-            {/each}
-        </ul>
-    </nav>
 </div>

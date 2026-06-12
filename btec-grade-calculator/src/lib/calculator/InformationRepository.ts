@@ -19,6 +19,9 @@ export const findCoursesBySubject = (subject: string): CourseResource[] => {
 
 export const findCourseBySubjectAndType = (subject: string, courseType: string): CourseResource | undefined => {
     let courses: Course[] = SubjectDetails[subject as Subject];
+    if (courses === undefined) {
+        return;
+    }
 
     let course: Course | undefined = courses.find(course => course.courseType.toLowerCase() === courseType.toLowerCase());
 
